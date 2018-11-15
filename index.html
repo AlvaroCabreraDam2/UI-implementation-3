@@ -96,7 +96,7 @@
         margin-left: -1.3em;
       }
 
-      .color_swatch{
+      .colorSwatch{
         height: 50px;
         width: 50px;
       }
@@ -110,27 +110,21 @@
       $("#date").datepicker({ minDate: (new Date(2018, 0, 1)), maxDate: (new Date(2018, 2, 31)) });
 
       $("#selectable").selectable();
-      $(".ui-selected").text();
-
+      
       $("#sortable").sortable();
       $("#sortable").disableSelection();
 
       $(document).tooltip({
-        /*
-           An item in brackets refers to taking all elements with the attribute in brackets, while
-           an item not in brackets refers to taking all elements of that type (ex: 'img', 'a')
-        */
         items: "[title], [class]",
         content: function () {
-          // jQuery uses "this" to refer to the element that triggered the event
           var element = $(this);
           if (element.is("[title]")) {
             return element.attr("title");
           }
           if (element.is("[class]")) {
-            if (element.hasClass("colorSpam")) {
-              var text = element.text(); //in this case, will be the desired color
-              return "<div class='color_swatch' style='background:" + text + "'></div>";
+            if (element.hasClass("color")) {
+              var text = element.text();
+              return "<div class='colorSwatch' style='background:" + text + "'></div>";
             }
           }
         }
@@ -177,11 +171,11 @@
     <h3>Rank the colors from your most favorite to your least favorite:</h3>
 
     <ul id="sortable">
-      <li class="ui-state-default colorSpam"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff0000</li>
-      <li class="ui-state-default colorSpam"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#0000ff</li>
-      <li class="ui-state-default colorSpam"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff00b3</li>
-      <li class="ui-state-default colorSpam"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ded447</li>
-      <li class="ui-state-default colorSpam"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#125e18</li>
+      <li class="ui-state-default color"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff0000</li>
+      <li class="ui-state-default color"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#0000ff</li>
+      <li class="ui-state-default color"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff00b3</li>
+      <li class="ui-state-default color"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ded447</li>
+      <li class="ui-state-default color"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#125e18</li>
     </ul>
 
   </div>
